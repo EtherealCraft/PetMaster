@@ -6,6 +6,7 @@ import com.hm.petmaster.command.*;
 import com.hm.petmaster.files.PetAbilityFile;
 import com.hm.petmaster.listener.*;
 import com.hm.petmaster.utils.MessageSender;
+import com.hm.petmaster.utils.TabCompleterPetm;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -145,6 +146,7 @@ public class PetMaster extends JavaPlugin {
 			getLogger().log(Level.WARNING, "Your language file contains outdated entrys! It is highly reccomended to delete it and let it regenerate so that all messages appear correctly.");
 		}
 
+		getCommand("petm").setTabCompleter(new TabCompleterPetm());
 		if (getServer().getPluginManager().isPluginEnabled(this)) {
 			getLogger().info("Plugin enabled and ready to run! Took " + (System.currentTimeMillis() - startTime) + "ms.");
 		}
